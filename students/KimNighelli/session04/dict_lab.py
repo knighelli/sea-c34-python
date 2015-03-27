@@ -36,15 +36,22 @@ dict1['fruit'] = 'Mango'
 
 # Display the dictionary keys.
 
-print "\n The keys in the dictionary are: ", dict1.keys()
+print "\nThe keys in the dictionary are: ", dict1.keys()
 
 # Display the dictionary values.
 
-print "\n The values in the dictionary are: ", dict1.values()
+print "\nThe values in the dictionary are: ", dict1.values()
+
+#Display whether or not 'cake' is a key in the dictionary (i.e. False) (now).
+
+print "\nIs the key 'cake' in the dictionary anymore?"
+print 'cake' in dict1
+
+#Display whether or not 'Mango' is a value in the dictionary.
+
+print "\nIs the value 'Mango' in the dictionary?"
+print 'Mango' in dict1.values()
 '''
-Display the dictionary keys.
-Display the dictionary values.
-Display whether or not 'cake' is a key in the dictionary (i.e. False) (now).
 Display whether or not 'Mango' is a value in the dictionary.
 Using the dict constructor and zip, build a dictionary of numbers from zero to fifteen and the hexadecimal equivalent (string is fine).
 Using the dictionary from item 1: Make a dictionary using the same keys but with the number of 'a's in each value.
