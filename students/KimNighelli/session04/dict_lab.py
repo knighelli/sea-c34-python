@@ -98,18 +98,31 @@ s4 = set(range(0, 21, 4))
 # Display the sets.
 
 print "\nSets:" 
-print "S2: ", s2
-print "S3: ", s3
-print "S4: ", s4
+print "s2: ", s2
+print "s3: ", s3
+print "s4: ", s4
 
+# Display if s3 is a subset of s2 (False) and if s4 is a subset of s2 (True).
+
+print "\nIs s3 a subset of s2?"
+print s3.issubset(s2)
+
+print "\nIs s4 a subset of s2?"
+print s4.issubset(s2)
 
 '''
-Create sets s2, s3 and s4 that contain numbers from zero through twenty, divisible 2, 3 and 4.
-Display the sets.
-Display if s3 is a subset of s2 (False)
-and if s4 is a subset of s2 (True).
-Create a set with the letters in 'Python' and add 'i' to the set.
-Create a frozenset with the letters in 'marathon'
+Task 5
+'''
+
+# Create a set with the letters in 'Python' and add 'i' to the set.
+pyset = set('Python')
+pyset.add('i')
+
+# Create a frozenset with the letters in 'marathon'
+frozen = frozenset('marathon')
+
+# Display the union and intersection of the two sets.
+'''
 display the union and intersection of the two sets.
 
 '''
