@@ -122,7 +122,12 @@ pyset.add('i')
 frozen = frozenset('marathon')
 
 # Display the union and intersection of the two sets.
-'''
-display the union and intersection of the two sets.
+print "\nThe union of set('Pythoni') and frozenset('marathon') is : "
+print pyset.union(frozen)
 
-'''
+print "\nThe intersection of set('Pythoni') and frozenset('marathon') is : "
+print pyset.intersection(frozen)
+
+# If you reverse the union and intersection commands, the contents of the set are
+# the same. However, when reversed (ie. frozen.union(pyset)), the result is a 
+# frozen set. It seems like it takes on the properties of outside set. 
