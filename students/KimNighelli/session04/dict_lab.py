@@ -51,9 +51,42 @@ print 'cake' in dict1
 
 print "\nIs the value 'Mango' in the dictionary?"
 print 'Mango' in dict1.values()
+
 '''
-Display whether or not 'Mango' is a value in the dictionary.
-Using the dict constructor and zip, build a dictionary of numbers from zero to fifteen and the hexadecimal equivalent (string is fine).
+Task 2
+
+The dict() constructor builds dictionaries directly from sequences of key-value pairs
+Convert an integer number (of any size) to a lowercase hexadecimal string prefixed with '0x'
+* There is a hex function that does this! ex: hex(255)
+'''
+# Using the dict constructor and zip, build a dictionary of numbers from zero to fifteen and the hexadecimal equivalent (string is fine).
+
+numbers = range(16)
+hexes = []
+for num in numbers:
+    hexes.append(hex(num))
+# print zip(numbers, hexes) returns [(0, '0x0'), (1, '0x1'), (2, '0x2'), (3, '0x3'), (4, '0x4'), (5, '0x5'), (6, '0x6'), (7, '0x7'), (8, '0x8'), (9, '0x9'), (10, '0xa'), (11, '0xb'), (12, '0xc'), (13, '0xd'), (14, '0xe'), (15, '0xf')]
+
+hex_dictionary = dict(zip(numbers, hexes))
+
+print "\nThe number-hex dictionary: ", hex_dictionary
+
+''' 
+Task 3
+'''
+
+#Using the dictionary from item 1: Make a dictionary using the same keys but with the number of 'a's in each value.
+
+dict_a_values = {}
+
+for key, values in dict1.iteritems():
+    dict_a_values[key] = values.count('a')
+
+print "\nThe dictionary with the values being the number of times the letter a appears \
+in the dictionary from the first task :\n", dict_a_values
+
+
+'''
 Using the dictionary from item 1: Make a dictionary using the same keys but with the number of 'a's in each value.
 Create sets s2, s3 and s4 that contain numbers from zero through twenty, divisible 2, 3 and 4.
 Display the sets.
