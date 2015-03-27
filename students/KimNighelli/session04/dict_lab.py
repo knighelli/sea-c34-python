@@ -87,7 +87,23 @@ in the dictionary from the first task :\n", dict_a_values
 
 
 '''
-Using the dictionary from item 1: Make a dictionary using the same keys but with the number of 'a's in each value.
+Task 4
+'''
+
+# Create sets s2, s3 and s4 that contain numbers from zero through twenty, divisible 2, 3 and 4.
+s2 = set(range(0, 21, 2))
+s3 = set(range(0, 21, 3))
+s4 = set(range(0, 21, 4))
+
+# Display the sets.
+
+print "\nSets:" 
+print "S2: ", s2
+print "S3: ", s3
+print "S4: ", s4
+
+
+'''
 Create sets s2, s3 and s4 that contain numbers from zero through twenty, divisible 2, 3 and 4.
 Display the sets.
 Display if s3 is a subset of s2 (False)
