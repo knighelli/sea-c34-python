@@ -1,6 +1,6 @@
 '''
-The following assignment is for the Dictionary Lab - Task 9 Assignment. 
-It is a series of tasks that are five tasks. I will mark each section with 
+The following assignment is for the Dictionary Lab - Task 9 Assignment
+It is a series of tasks that are five tasks. I will mark each section with
 a series of single quotes  and each 'task' with a pound sign '#'.
 
 Kimberlee Nighelli - March 26, 2015
@@ -11,9 +11,10 @@ Kimberlee Nighelli - March 26, 2015
 Section 1
 '''
 
-# Create a dictionary containing 'name', 'city', and 'cake' for 'Chris' from 'Seattle' who likes 'Chocolate'.
+# Create a dictionary containing 'name', 'city', and 'cake' for
+# 'Chris' from 'Seattle' who likes 'Chocolate'.
 
-dict1 = { 'name' : 'Chris',
+dict1 = {'name' : 'Chris',
         'city' : 'Seattle', 
         'cake' : 'chocolate'
         }
@@ -96,8 +97,7 @@ s3 = set(range(0, 21, 3))
 s4 = set(range(0, 21, 4))
 
 # Display the sets.
-
-print "\nSets:" 
+print "\nSets:"
 print "s2: ", s2
 print "s3: ", s3
 print "s4: ", s4
@@ -129,5 +129,5 @@ print "\nThe intersection of set('Pythoni') and frozenset('marathon') is : "
 print pyset.intersection(frozen)
 
 # If you reverse the union and intersection commands, the contents of the set are
-# the same. However, when reversed (ie. frozen.union(pyset)), the result is a 
-# frozen set. It seems like it takes on the properties of outside set. 
+# the same. However, when reversed (ie. frozen.union(pyset)), the result is a
+# frozen set. It seems like it takes on the properties of outside set
