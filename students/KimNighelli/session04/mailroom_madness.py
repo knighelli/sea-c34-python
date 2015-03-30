@@ -8,7 +8,6 @@ separate functions:
     2) What to do when you want to send a thank you
     3) What to do when you want a donor report
 
-Need to implement the safe input function. 
 '''
 
 # First I'd like to create a donor database. The value in the key-value
@@ -34,16 +33,15 @@ def initial_choice():
     return choice
 
 def get_name():
-    
     while True:
-        name = raw_input("What donor, new or existing, would you like to work with? "
-                "You can also type 'list' here to receive a list of previous donors or "
-                "you can type 'quit' to exit the program\n\n")
+        name = raw_input("\nWhat donor, new or existing, would you like to work with? "
+            "You can also type 'list' here to receive a list of previous donors or "
+            "you can type 'quit' to exit the program: ")
 
         if name.lower() == 'list':
             print "Donors who have previously donated are:"
             for donor in donor_db:
-                print donor
+                print "   ", donor
         else:
             return name
 
@@ -51,10 +49,8 @@ def get_name():
 def send_thank_you():
     '''
     The user enters this loop if they choose A above
-
     First ask the user what they want to do
     '''
-    
     name = get_name()
 
     if name == "quit":
@@ -63,8 +59,9 @@ def send_thank_you():
     # Ask how much the person donated
 
     while True:
-        amount = raw_input("How much did %s donate? You can also type 'quit' here to "
-               "exit the program" % (name))
+        amount = raw_input(
+            "How much did %s donate? You can also type 'quit' here to "
+            "exit the program: " % (name))
 
         if amount.lower() == 'quit':
             return
@@ -72,37 +69,24 @@ def send_thank_you():
         try:
             amount = float(amount)
         except ValueError:
-            print "%s is not a valid number. Please re-enter the amount" % (amount)
+            print "%s is not a valid number. Please re-enter the amount." % (amount)
             continue
 
         if amount <= 0:
-            print "Amount donated must be greater than 0"
+            print "Amount donated must be greater than 0."
         else:
-            donor_db[name].append(amount)
             break
-
 
     # Add donor to db if they're not in there
     if name not in donor_db:
         donor_db[name] = []
+    donor_db[name].append(amount)
+
+    # Print email to terminal
+    print "Dear %s, thank you very much for your donation of %f" % (name, amount)
+
 
 """
-
-
-   # Do some test on donation amount to make sure it's an actual number, float, etc
-   # I may want to check if the donation amount > 0. 
-   # I'd then print something to tell the user that the amount is invalid
-   # and return to the amount raw_input. (**** while loop?)
-
-   # Add amount to database (the amounts are in a list- append)
-   donor_db[name].append(donation_amount)
-
-   # Print email to terminal
-
-   print "Dear %s, thank you very much for your donation of %f" % (name, donation_amount)
-
-
-
 # Below is the function to print a donor report
 
 def print_report():
