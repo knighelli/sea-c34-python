@@ -1,11 +1,6 @@
 '''
-This is for Task 7- Planning Mailroom Madness
+This is for Task 11- Mailroom Madness
 
-This "program" is simply a program outline to help me plan how
-I'm going to code up the Mail Room Madness task. I also wrote an
-outline that I attached to the homework submission.
-
-Obviously, this program will not run- that's next session's task!
 
 There seem to be three major blocks that I'll split up into their own
 separate functions:
@@ -13,6 +8,7 @@ separate functions:
     2) What to do when you want to send a thank you
     3) What to do when you want a donor report
 
+Need to implement the safe input function. 
 '''
 
 # First I'd like to create a donor database. The value in the key-value
@@ -33,9 +29,24 @@ def initial_choice():
     '''
 
     choice = raw_input("What would you like to do? Choose 'A' to send a thank you, "
-            "choose 'B' to print a donor report, or choose 'C' to quit the program")
+            "choose 'B' to print a donor report, or choose 'C' to quit the program\n\n")
 
     return choice
+
+def get_name():
+    
+    while True:
+        name = raw_input("What donor, new or existing, would you like to work with? "
+                "You can also type 'list' here to receive a list of previous donors or "
+                "you can type 'quit' to exit the program\n\n")
+
+        if name.lower() == 'list':
+            print "Donors who have previously donated are:"
+            for donor in donor_db:
+                print donor
+        else:
+            return name
+
 
 def send_thank_you():
     '''
@@ -43,34 +54,40 @@ def send_thank_you():
 
     First ask the user what they want to do
     '''
+    
+    name = get_name()
 
-    name = raw_input("What donor, new or existing, would you like to work with? "
-            "You can also type 'list' here to receive a list of previous donors or "
-            "you can type 'quit' to exit the program")
+    if name == "quit":
+        return
 
+    # Ask how much the person donated
 
-    # I'll probably put this in a while loop since I have to reprompt after listing donors
-    if name == 'list':
-        print "Donors who have previously donated are:"
-        for donor in donor_db:
-            print donor
-        reprompt the raw_input
-    elif name == 'quit':
-        quit the program
+    while True:
+        amount = raw_input("How much did %s donate? You can also type 'quit' here to "
+               "exit the program" % (name))
+
+        if amount.lower() == 'quit':
+            return
+
+        try:
+            amount = float(amount)
+        except ValueError:
+            print "%s is not a valid number. Please re-enter the amount" % (amount)
+            continue
+
+        if amount <= 0:
+            print "Amount donated must be greater than 0"
+        else:
+            donor_db[name].append(amount)
+            break
+
 
     # Add donor to db if they're not in there
     if name not in donor_db:
         donor_db[name] = []
 
-   # Ask how much the person donated
+"""
 
-   amount = raw_input("How much did %s donate? You can also type 'quit' here to "
-           "exit the program" % (name))
-
-   if amount == 'quit':
-       exit the program
-   else:
-       donation_amount = float(amount)
 
    # Do some test on donation amount to make sure it's an actual number, float, etc
    # I may want to check if the donation amount > 0. 
@@ -112,7 +129,7 @@ def print_report():
     '''
     Allow the user to return to the original prompt
     '''
-
+'''
 
 '''
 THINGS TO IMPLEMENT
@@ -125,4 +142,18 @@ I forsee struggles with the instruction to allow the user to return to the origi
 
 Print the data to a table for the report will be difficult. 
 
-'''
+"""
+
+if __name__ == "__main__":
+    
+    choice = ''
+
+    while choice.lower() != "c":
+        
+        choice = initial_choice()
+
+        if choice.lower() == "a":
+            send_thank_you()
+
+
+
