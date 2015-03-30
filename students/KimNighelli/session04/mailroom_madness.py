@@ -95,14 +95,33 @@ def print_report():
     '''
 
     metrics = []
+    max_name_length = 0
+    max_total_length = 0
+    max_length_length = 0
+    max_average_length = 0
+
     for (name, donations) in donor_db.items():
         total = sum(donations) 
         length = len(donations)
         average = (total / length)
-        
+
         metrics.append((name, total, length, average))
 
+        max_name_length = max(len(name), max_name_length)
+        max_total_length = max(len("%.02f" % (total)), max_total_length)
+        max_length_length = max(len(str(length)), max_length_length)
+        max_average_length = max(len("%.02f" % (average)), max_average_length)
+
+    print max_name_length, max_total_length, max_length_length, max_average_length
+
+
+
+
+        
+
     print metrics
+
+
 
 """
 '''
