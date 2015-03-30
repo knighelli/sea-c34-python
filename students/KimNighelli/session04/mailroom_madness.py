@@ -34,7 +34,7 @@ def initial_choice():
 
 def get_name():
     while True:
-        name = raw_input("\nWhat donor, new or existing, would you like to work with? "
+        name = safe_input("\nWhat donor, new or existing, would you like to work with? "
             "You can also type 'list' here to receive a list of previous donors or "
             "you can type 'quit' to exit the program: ")
 
@@ -59,7 +59,7 @@ def send_thank_you():
     # Ask how much the person donated
 
     while True:
-        amount = raw_input(
+        amount = safe_input(
             "How much did %s donate? You can also type 'quit' here to "
             "exit the program: " % (name))
 
@@ -146,7 +146,11 @@ def print_row(row, widths):
     return "| %s | %s | %s | %s |" % (name, total, length, average)
 
 
-
+def safe_input(prompt):
+    try:
+        return raw_input(prompt)
+    except (EOFError, KeyboardInterrupt):
+        return None
 
 
 def get_choice():
