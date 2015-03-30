@@ -86,8 +86,6 @@ def send_thank_you():
     print "Dear %s, thank you very much for your donation of %f" % (name, amount)
 
 
-"""
-# Below is the function to print a donor report
 
 def print_report():
 
@@ -98,12 +96,16 @@ def print_report():
 
     metrics = []
     for (name, donations) in donor_db.items():
-        calculate total
-        calculate number 
-        calculate average
-        append name, total, number, average to metrics
+        total = sum(donations) 
+        length = len(donations)
+        average = (total / length)
+        
+        metrics.append((name, total, length, average))
 
-    '''
+    print metrics
+
+"""
+'''
     Next, I need to display the metrics in tabular form. I'll need to look up how to do this
     '''
 
@@ -128,16 +130,20 @@ Print the data to a table for the report will be difficult.
 
 """
 
-if __name__ == "__main__":
-    
+def get_choice():
     choice = ''
 
     while choice.lower() != "c":
-        
         choice = initial_choice()
 
         if choice.lower() == "a":
             send_thank_you()
+        elif choice.lower() == "b":
+            print_report()
 
 
 
+
+if __name__ == "__main__":
+    #get_choice()
+    print_report()
