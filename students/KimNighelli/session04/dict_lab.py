@@ -130,3 +130,46 @@ print PYSET.intersection(FROZEN)
 # the same. However, when reversed (ie. FROZEN.union(PYSET)), the result is a
 # frozen set. It seems like it takes on the properties of outside set
 
+'''
+Output:
+The original dictionary:
+{'cake': 'chocolate', 'city': 'Seattle', 'name': 'Chris'}
+
+The dictionary missing the cake key:
+{'city': 'Seattle', 'name': 'Chris'}
+
+The keys in the dictionary are:  ['city', 'fruit', 'name']
+
+The values in the dictionary are:  ['Seattle', 'Mango', 'Chris']
+
+Is the key 'cake' in the dictionary anymore?
+False
+
+Is the value 'Mango' in the dictionary?
+True
+
+The number-hex dictionary:  {0: '0x0', 1: '0x1', 2: '0x2', 3: '0x3',
+4: '0x4', 5: '0x5', 6: '0x6', 7: '0x7', 8: '0x8', 9: '0x9', 10: '0xa',
+11: '0xb', 12: '0xc', 13: '0xd', 14: '0xe', 15: '0xf'}
+
+The dictionary with the values being the number of times the letter a
+appears in the dictionary from the first task :
+{'city': 1, 'fruit': 1, 'name': 0}
+
+Sets:
+s2:  set([0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20])
+s3:  set([0, 3, 6, 9, 12, 15, 18])
+s4:  set([0, 4, 8, 12, 16, 20])
+
+Is s3 a subset of s2?
+False
+
+Is s4 a subset of s2?
+True
+
+The union of set('Pythoni') and frozenset('marathon') is :
+set(['a', 'i', 'h', 'm', 'o', 'n', 'P', 'r', 't', 'y'])
+
+The intersection of set('Pythoni') and frozenset('marathon') is :
+set(['h', 't', 'o', 'n'])
+'''
