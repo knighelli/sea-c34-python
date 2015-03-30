@@ -13,10 +13,10 @@ separate functions:
 # First I'd like to create a donor database. The value in the key-value
 # pair will be a list since a donor can donate more than once.
 
-donor_db = { "Patti Guenard" : [457.00, 54.36, 100.00],
-        "Lynn Ellis" : [84.00, 12.86, 90.00],
-        "Tedrick Mealy" : [1000.00],
-        "Jeff Lerner" : [400.00, 500.00, 20.00]
+DONOR_DB = {"Patti Guenard" : [457.00, 54.36, 100.00], \
+        "Lynn Ellis" : [84.00, 12.86, 90.00], \
+        "Tedrick Mealy" : [1000.00], \
+        "Jeff Lerner" : [400.00, 500.00, 20.00] \
         }
 
 # The following will be the "choose what you want to do" function:
@@ -27,20 +27,23 @@ def initial_choice():
     Ask the user what they want to do via terminal
     '''
 
-    choice = raw_input("What would you like to do? Choose 'A' to send a thank you, "
+    choice = raw_input("What would you like to do? Choose 'A' to send a thank you, " \
             "choose 'B' to print a donor report, or choose 'C' to quit the program\n\n")
 
     return choice
 
 def get_name():
+    '''
+    Asks the user for a name to work with
+    '''
     while True:
-        name = safe_input("\nWhat donor, new or existing, would you like to work with? "
+        name = safe_input("\nWhat donor, new or existing, would you like to work with? " \
             "You can also type 'list' here to receive a list of previous donors or "
             "you can type 'quit' to exit the program: ")
 
         if name.lower() == 'list':
             print "Donors who have previously donated are:"
-            for donor in donor_db:
+            for donor in DONOR_DB:
                 print "   ", donor
         else:
             return name
@@ -78,9 +81,9 @@ def send_thank_you():
             break
 
     # Add donor to db if they're not in there
-    if name not in donor_db:
-        donor_db[name] = []
-    donor_db[name].append(amount)
+    if name not in DONOR_DB:
+        DONOR_DB[name] = []
+    DONOR_DB[name].append(amount)
 
     # Print email to terminal
     print "Dear %s, thank you very much for your donation of %f" % (name, amount)
@@ -102,7 +105,7 @@ def print_report():
     max_length_length = len(header[2])
     max_average_length = len(header[3])
 
-    for (name, donations) in donor_db.items():
+    for (name, donations) in DONOR_DB.items():
         total = sum(donations)
         length = len(donations)
         average = (total / length)
@@ -121,7 +124,6 @@ def print_report():
     print seperator
     print header_row
     print seperator
-    
 
     for metric in metrics:
         name_string = metric[0]
@@ -134,10 +136,16 @@ def print_report():
     print seperator
 
 def print_value(value, max_length):
+    '''
+    Returns the value plus the necessary whitespace
+    '''
     return value + " "*(max_length - len(value))
 
 def print_row(row, widths):
-    
+    '''
+    prints the actual table after calculating values and
+    necessary whitespace
+    '''
     name = print_value(row[0], widths[0])
     total = print_value(row[1], widths[1])
     length = print_value(row[2], widths[2])
@@ -147,6 +155,9 @@ def print_row(row, widths):
 
 
 def safe_input(prompt):
+    '''
+    Implements the safe input function from task 10
+    '''
     try:
         return raw_input(prompt)
     except (EOFError, KeyboardInterrupt):
@@ -154,6 +165,10 @@ def safe_input(prompt):
 
 
 def get_choice():
+    '''
+    Determines the answer from initial_choice() and
+    opens the correct function
+    '''
     choice = ''
 
     while choice.lower() != "c":
