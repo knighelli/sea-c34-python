@@ -11,6 +11,12 @@ Kimberlee Nighelli - 28 March 2015
 '''
 
 def safe_input(prompt):
+    '''
+    This function modifies the output of the
+    raw_input function to return None in lieu
+    of an EOFError or KeyboardInterrupt
+    '''
+
     try:
         return raw_input(prompt)
     except (EOFError, KeyboardInterrupt):
