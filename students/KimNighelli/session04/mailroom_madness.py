@@ -95,13 +95,15 @@ def print_report():
     '''
 
     metrics = []
-    max_name_length = 0
-    max_total_length = 0
-    max_length_length = 0
-    max_average_length = 0
+
+    header = ("Name", "Total Donations", "Number of Donations", "Average Donation")
+    max_name_length = len(header[0])
+    max_total_length = len(header[1])
+    max_length_length = len(header[2])
+    max_average_length = len(header[3])
 
     for (name, donations) in donor_db.items():
-        total = sum(donations) 
+        total = sum(donations)
         length = len(donations)
         average = (total / length)
 
@@ -112,42 +114,40 @@ def print_report():
         max_length_length = max(len(str(length)), max_length_length)
         max_average_length = max(len("%.02f" % (average)), max_average_length)
 
-    print max_name_length, max_total_length, max_length_length, max_average_length
+    widths = (max_name_length, max_total_length, max_length_length, max_average_length)
+
+    header_row = print_row(header, widths)
+    seperator = "-" * len(header_row)
+    print seperator
+    print header_row
+    print seperator
+    
+
+    for metric in metrics:
+        name_string = metric[0]
+        total_string = "%.02f" %(metric[1])
+        length_string = "%d" %(metric[2])
+        average_string = "%.02f" %(metric[3])
+        row = (name_string, total_string, length_string, average_string)
+        print print_row(row, widths)
+
+    print seperator
+
+def print_value(value, max_length):
+    return value + " "*(max_length - len(value))
+
+def print_row(row, widths):
+    
+    name = print_value(row[0], widths[0])
+    total = print_value(row[1], widths[1])
+    length = print_value(row[2], widths[2])
+    average = print_value(row[3], widths[3])
+
+    return "| %s | %s | %s | %s |" % (name, total, length, average)
 
 
 
 
-        
-
-    print metrics
-
-
-
-"""
-'''
-    Next, I need to display the metrics in tabular form. I'll need to look up how to do this
-    '''
-
-    for items in metrics:
-        print it like a table
-
-    '''
-    Allow the user to return to the original prompt
-    '''
-'''
-
-'''
-THINGS TO IMPLEMENT
-
-I'll need to figure out a way to actually take the selection from the "what do you want to do"
-section and make it run the correct function. Functions can be called in the if __name__ = 
-"__main__" loop- I might do something there. Don't know what yet. 
-
-I forsee struggles with the instruction to allow the user to return to the original prompt.
-
-Print the data to a table for the report will be difficult. 
-
-"""
 
 def get_choice():
     choice = ''
@@ -160,9 +160,6 @@ def get_choice():
         elif choice.lower() == "b":
             print_report()
 
-
-
-
 if __name__ == "__main__":
-    #get_choice()
-    print_report()
+    get_choice()
+
