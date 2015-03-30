@@ -24,3 +24,4 @@ def safe_input(prompt):
 
 
 safe_input("Hi")
+
