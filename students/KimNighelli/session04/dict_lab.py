@@ -53,12 +53,13 @@ print 'Mango' in DICT1.values()
 '''
 Task 2
 
-The dict() constructor builds dictionaries directly from sequences of key-value pairs
-Convert an integer number (of any size) to a lowercase hexadecimal string prefixed with '0x'
+The dict() constructor builds dictionaries directly from sequences of
+key-value pairs. Convert an integer number (of any size) to a
+lowercase hexadecimal string prefixed with '0x'
 * There is a hex function that does this! ex: hex(255)
 '''
-# Using the dict constructor and zip, build a dictionary of numbers from zero to
-# fifteen and the hexadecimal equivalent (string is fine).
+# Using the dict constructor and zip, build a dictionary of numbers from zero
+# to fifteen and the hexadecimal equivalent (string is fine).
 
 NUMBERS = range(16)
 HEXES = []
@@ -81,15 +82,16 @@ DICT_A_VALUES = {}
 for key, values in DICT1.iteritems():
     DICT_A_VALUES[key] = values.count('a')
 
-print "\nThe dictionary with the values being the number of times the letter a appears \
-in the dictionary from the first task :\n", DICT_A_VALUES
+print "\nThe dictionary with the values being the number of times the letter \
+    a appears in the dictionary from the first task :\n", DICT_A_VALUES
 
 
 '''
 Task 4
 '''
 
-# Create sets s2, s3 and s4 that contain numbers from zero through twenty, divisible 2, 3 and 4.
+# Create sets s2, s3 and s4 that contain numbers from zero through twenty,
+# divisible 2, 3 and 4.
 S2 = set(range(0, 21, 2))
 S3 = set(range(0, 21, 3))
 S4 = set(range(0, 21, 4))
@@ -126,9 +128,9 @@ print PYSET.union(FROZEN)
 print "\nThe intersection of set('Pythoni') and frozenset('marathon') is : "
 print PYSET.intersection(FROZEN)
 
-# If you reverse the union and intersection commands, the contents of the set are
-# the same. However, when reversed (ie. FROZEN.union(PYSET)), the result is a
-# frozen set. It seems like it takes on the properties of outside set
+# If you reverse the union and intersection commands, the contents of the set
+# are the same. However, when reversed (ie. FROZEN.union(PYSET)), the result
+# is a frozen set. It seems like it takes on the properties of outside set
 
 '''
 Output:
