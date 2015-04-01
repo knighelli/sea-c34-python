@@ -15,3 +15,10 @@ Kimberlee Nighelli - 31 March 2015
 '''
 
 
+def count_evens(nums):
+    ''' Given an array, returns the count of even numbers in it '''
+    return len([x for x in nums if x % 2 == 0])
+
+'''
+Testing
+'''
