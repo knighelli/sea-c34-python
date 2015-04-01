@@ -14,21 +14,21 @@ Section 1
 # Create a dictionary containing 'name', 'city', and 'cake' for
 # 'Chris' from 'Seattle' who likes 'Chocolate'.
 
-DICT1 = {'name' : 'Chris', 'city' : 'Seattle', 'cake' : 'chocolate'}
+DICT1 = {'name': 'Chris', 'city': 'Seattle', 'cake': 'chocolate'}
 
-#Display the dictionary.
+# Display the dictionary.
 
 print 'The original dictionary: \n', DICT1
 
-#Delete the entry for 'cake'.
+# Delete the entry for 'cake'.
 
 del DICT1['cake']
 
-#Display the dictionary.
+# Display the dictionary.
 
 print '\nThe dictionary missing the cake key: \n', DICT1
 
-#Add an entry for 'fruit' with 'Mango' and display the dictionary.
+# Add an entry for 'fruit' with 'Mango' and display the dictionary.
 
 DICT1['fruit'] = 'Mango'
 
@@ -40,12 +40,12 @@ print "\nThe keys in the dictionary are: ", DICT1.keys()
 
 print "\nThe values in the dictionary are: ", DICT1.values()
 
-#Display whether or not 'cake' is a key in the dictionary (i.e. False) (now).
+# Display whether or not 'cake' is a key in the dictionary (i.e. False) (now).
 
 print "\nIs the key 'cake' in the dictionary anymore?"
 print 'cake' in DICT1
 
-#Display whether or not 'Mango' is a value in the dictionary.
+# Display whether or not 'Mango' is a value in the dictionary.
 
 print "\nIs the value 'Mango' in the dictionary?"
 print 'Mango' in DICT1.values()
@@ -74,7 +74,7 @@ print "\nThe number-hex dictionary: ", HEX_DICTIONARY
 Task 3
 '''
 
-#Using the dictionary from item 1: Make a dictionary using the same
+# Using the dictionary from item 1: Make a dictionary using the same
 # keys but with the number of 'a's in each value.
 
 DICT_A_VALUES = {}
@@ -175,4 +175,3 @@ set(['a', 'i', 'h', 'm', 'o', 'n', 'P', 'r', 't', 'y'])
 The intersection of set('Pythoni') and frozenset('marathon') is :
 set(['h', 't', 'o', 'n'])
 '''
-
