@@ -10,6 +10,7 @@ will return a none rather than raising those excpetions.
 Kimberlee Nighelli - 28 March 2015
 '''
 
+
 def safe_input(prompt):
     '''
     This function modifies the output of the
@@ -24,4 +25,3 @@ def safe_input(prompt):
 
 
 safe_input("Hi")
-
