@@ -50,8 +50,8 @@ print hex_dict == hex_dict_dc
 # editing the dict in place, or making a new one. If you edit in place,
 # make a copy first!
 
-a_about_me_dict = {key: values.count('a') for key, values in
-                   about_me_dict.items()}
+a_about_me_dict = {key: values.count('a')
+                   for key, values in about_me_dict.items()}
 
 print a_about_me_dict
 
