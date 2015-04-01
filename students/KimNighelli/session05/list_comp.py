@@ -22,3 +22,11 @@ def count_evens(nums):
 '''
 Testing
 '''
+
+if __name__ == "__main__":
+    assert count_evens([2, 4, 5, 7]) == 2
+    assert count_evens([-3, -2, -1, 0, 1, 2, 3, 4]) == 4
+    assert count_evens([3, 5, 9, 273]) == 0
+    assert count_evens([8, 2, 7, 1, 0, 2, 2, 0, 5, 9, 3, 22, 104]) == 8
+
+    print "All tests passed"
