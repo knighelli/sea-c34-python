@@ -9,7 +9,7 @@ The task had the following instruction: Return the number of even ints in
 the given array. Note: the % "mod" operator computes the remainder,
 e.g. 5 % 2 is 1.
 
-Below is the function doing that.
+Below is the function doing that-count_evens, followed by some tests.
 
 Kimberlee Nighelli - 31 March 2015
 '''
