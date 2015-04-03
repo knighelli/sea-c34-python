@@ -69,6 +69,8 @@ print s4
 
 # create a sequence that holds all three sets
 # loop through that sequence to build the sets up so no repeated code.
+# Extra credit: do it all as a one-liner by nesting a set comprehension
+# inside a list comprehension.
 
 s2, s3, s4 = [{i for i in range(21) if i % j == 0} for j in range(2, 5)]
 
