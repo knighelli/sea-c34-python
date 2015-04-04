@@ -42,6 +42,21 @@ class Body(Element):
 class P(Element):
     tag = "p"
 
+class Head(Element):
+    tag = "head"
+
+class OneLineTag(Element):
+
+    def render(self, file_out, ind=""):
+        file_out.write(ind)
+        file_out.write("<%s>" % (self.tag))
+        for item in self.content:
+            file_out.write(item)
+        file_out.write("</%s>\n" % (self.tag))
+
+class Title(OneLineTag):
+    tag = "title"
+
 elem = Html()
 '''
 elem.append("Hello")
