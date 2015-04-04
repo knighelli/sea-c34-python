@@ -7,11 +7,12 @@ Python class example.
 
 
 class Element(object):
-    tag = "html"
-    indent = "  "
+    tag = ""
+    indent = "    "
 
-    def __init__(self, content=None):
+    def __init__(self, content=None, **attrs):
         self.content = []
+        self.attributes = attrs
 
         if content is not None:
             self.content.append(content)
@@ -22,7 +23,13 @@ class Element(object):
 
     def render(self, file_out, ind=""):
         file_out.write(ind)
-        file_out.write("<%s>\n" % (self.tag))
+        file_out.write("<%s" % (self.tag))
+        for key, value in self.attributes.items():
+            file_out.write(' %s="%s"' %(key, value))
+        file_out.write(">\n")
+        #for key, value in self.attributes:
+        #    file_out.write("%s = %s" % (key, value))
+
         for item in self.content:
             if isinstance(item, Element):
                 item.render(file_out, ind+self.indent)
