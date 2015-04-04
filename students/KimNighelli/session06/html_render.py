@@ -8,7 +8,7 @@ Python class example.
 
 class Element(object):
     tag = "html"
-    indent = 0
+    indent = "  "
 
     def __init__(self, content=None):
         self.content = []
@@ -21,18 +21,36 @@ class Element(object):
         self.content.append(string)
 
     def render(self, file_out, ind=""):
+        file_out.write(ind)
         file_out.write("<%s>\n" % (self.tag))
         for item in self.content:
-            file_out.write(item)
-            file_out.write("\n")
+            if isinstance(item, Element):
+                item.render(file_out, ind+self.indent)
+            else:
+                file_out.write(ind+self.indent)
+                file_out.write(item)
+                file_out.write("\n")
+        file_out.write(ind)
         file_out.write("</%s>\n" % (self.tag))
 
-an_elem = Element()
-print an_elem.content
-an_elem.append("Bae")
-an_elem.append("Sexy")
-print an_elem.content
-print an_elem.render(sys.stdout)
+class Html(Element):
+    tag = "html"
 
+class Body(Element):
+    tag = "body"
+
+class P(Element):
+    tag = "p"
+
+elem = Html()
+'''
+elem.append("Hello")
+elem.append("world")
+body_tag = Body("Dat booty")
+p_tag = P("Pee")
+body_tag.append(p_tag)
+elem.append(body_tag)
+elem.render(sys.stdout)
+'''
 
 
