@@ -25,11 +25,8 @@ class Element(object):
         file_out.write(ind)
         file_out.write("<%s" % (self.tag))
         for key, value in self.attributes.items():
-            file_out.write(' %s="%s"' %(key, value))
+            file_out.write(' %s="%s"' % (key, value))
         file_out.write(">\n")
-        #for key, value in self.attributes:
-        #    file_out.write("%s = %s" % (key, value))
-
         for item in self.content:
             if isinstance(item, Element):
                 item.render(file_out, ind+self.indent)
@@ -40,39 +37,54 @@ class Element(object):
         file_out.write(ind)
         file_out.write("</%s>\n" % (self.tag))
 
+
 class Html(Element):
     tag = "html"
+
 
 class Body(Element):
     tag = "body"
 
+
 class P(Element):
     tag = "p"
 
+
 class Head(Element):
     tag = "head"
+
 
 class OneLineTag(Element):
 
     def render(self, file_out, ind=""):
         file_out.write(ind)
-        file_out.write("<%s>" % (self.tag))
+        file_out.write("<%s" % (self.tag))
+        for key, value in self.attributes.items():
+            file_out.write(' %s="%s"' % (key, value))
+        file_out.write(">")
         for item in self.content:
             file_out.write(item)
         file_out.write("</%s>\n" % (self.tag))
 
+
 class Title(OneLineTag):
     tag = "title"
 
-elem = Html()
-'''
-elem.append("Hello")
-elem.append("world")
-body_tag = Body("Dat booty")
-p_tag = P("Pee")
-body_tag.append(p_tag)
-elem.append(body_tag)
-elem.render(sys.stdout)
-'''
 
+class SelfClosingTag(Element):
 
+    def __init__(self, **attrs):
+        self.attributes = attrs
+
+    def render(self, file_out, ind=""):
+        file_out.write(ind)
+        file_out.write("<%s" % (self.tag))
+        for key, value in self.attributes.items():
+            file_out.write(' %s="%s"' % (key, value))
+        file_out.write(" />\n")
+
+class Hr(SelfClosingTag):
+    tag = "hr"
+
+class Br(SelfClosingTag):
+    tag = "br"
