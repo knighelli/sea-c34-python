@@ -46,9 +46,9 @@ def inheritance():
 
 def person_dict():
     '''
-    Can I model information about people as an object instead
-    of a dictionary? Instead of having a dictionary within a
-    dictionary (messy), I'll store it as a object.
+    Can I store data in a dictionary using a class method as
+    opposed to hand-entering it? By creating a method in a
+    class- I can easily add future entries.
     '''
     d = {}
 
@@ -62,6 +62,7 @@ def person_dict():
             self.email = email
 
         def add_to_dict(self):
+            ''' Adds entries to the d dictionary '''
             d[self.name] = {}
             d[self.name]["age"] = self.age
             d[self.name]["address"] = self.address
@@ -77,3 +78,12 @@ def person_dict():
 if __name__ == "__main__":
     inheritance()
     person_dict()
+
+'''
+Output
+Mammals have 4 legs and are warm blooded
+
+{'Joe Smith': {'age': '28', 'email': 'jsmith@netzero.com',
+'address': '45 Juniper Ave'}, 'Mary Alice': {'age': 54, 'email':
+'ma@aol.com', 'address': '9 Harvard Rd'}}
+'''
