@@ -71,7 +71,7 @@ def question_3():
         pass
 
     q3 = Ice(height="cirro", subtype="status")
-    print q3.generate_name()
+    q3.generate_name()
 
 
 def question_4():
@@ -125,3 +125,11 @@ if __name__ == "__main__":
     question_2()
     question_3()
     question_4()
+
+'''
+Output:
+Ash # Q1
+iced # Q2
+The name of this cloud is cirro-status # Q3
+Cirrostratus #Q4
+'''
