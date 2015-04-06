@@ -11,8 +11,8 @@ Kimberlee Nighelli 5 April 2015
 
 def pet_store():
     '''
-    Can I use a class and methods to illustrate various aspects of
-    the potential pets in a pet store?
+    Can I use a class and methods to help craft some advertisements
+    for some pets in a pet store?
     '''
 
     class Pet():
@@ -46,3 +46,13 @@ def pet_store():
 
 if __name__ == "__main__":
     pet_store()
+
+'''
+Output
+Penny is a 14 year old Cat in need of a home. Are they friendly? \
+        Yes, and they are in need of a lot of love.
+Gary is a 3 year old Lizard in need of a home. Are they friendly? \
+        No, and they are in need of a lot of love.
+
+etc.
+'''

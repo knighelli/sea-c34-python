@@ -30,7 +30,7 @@ def question_1():
 
 
 def question_2():
-    ''' Can I add additional variable to a constructor in a subclass? '''
+    ''' Can I add additional variables to a constructor in a subclass? '''
 
     class Cloud(object):
         ''' A class describing cloud properties '''
