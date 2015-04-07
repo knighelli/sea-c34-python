@@ -2,6 +2,9 @@
 """
 This is for Task 17 - HTML Renderer.
 
+In this task, I create an API to render a nicely indented
+html page.
+
 Kimberlee Nighelli - 6 April 2015
 """
 
@@ -49,7 +52,7 @@ class Html(Element):
         Overrides Element's render function to write the DOCTYPE
         file before the tag. Renders the output to a file
         '''
-        file_out.write("<!DOCTYPE html>")
+        file_out.write("<!DOCTYPE html>\n")
         Element.render(self, file_out, ind="")
 
 
