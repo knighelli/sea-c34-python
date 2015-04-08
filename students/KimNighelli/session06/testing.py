@@ -37,7 +37,8 @@ class MyFuncTestCase(unittest.TestCase):
 def q1():
     '''
     How can I handle errors, like the Zero Division Error,
-    while testing? '''
+    while testing?
+    '''
     if __name__ == "__main__":
         unittest.main()
 
