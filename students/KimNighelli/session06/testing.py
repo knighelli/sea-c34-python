@@ -13,7 +13,9 @@ from example import float_division
 
 
 class MyFuncTestCase(unittest.TestCase):
+    ''' A testing class '''
     def test_example(self):
+        ''' Tests the example.py file '''
 
         test_values = [(0, 0), (1, 0)]
         for value in test_values:
