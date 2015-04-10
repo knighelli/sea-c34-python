@@ -13,6 +13,7 @@ For this assignment, we calculate the nth number in the series
 
 
 def fibonacci(n):
+    ''' Calculates the Fibonacci number at a given index '''
     if n < 0:
         return None
     elif n == 0:
@@ -32,6 +33,7 @@ For this assignment, we calculate the nth number in the series
 
 
 def lucas(n):
+    ''' Calculates the Lucas number at a given index '''
     if n < 0:
         return None
     elif n == 0:
@@ -53,6 +55,7 @@ To deal with this, make two variables - y = 0, z = 1
 
 
 def sum_series(n, y=0, z=1):
+    ''' Calculates the series at a given index '''
     if n < 0:
         return None
     elif n == 0:
