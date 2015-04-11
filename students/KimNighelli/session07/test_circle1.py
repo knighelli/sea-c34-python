@@ -57,7 +57,7 @@ def test_set_area():
         c.area = 44
 
 
-## the extra credit: classmethod:
+# the extra credit: classmethod:
 
 # def test_alternate_constructor():
 #   c = Circle.from_diameter(8)
